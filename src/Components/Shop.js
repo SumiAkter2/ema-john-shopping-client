@@ -10,12 +10,10 @@ const Shop = () => {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
+
   const addToCart = (product) => {
     const newCart = [...cart, product];
     setCart(newCart);
-    // let total = 0;
-    // const subTotal = total + products.price;
-    // console.log(subTotal);
   };
   return (
     <div className="shop-container">
@@ -24,7 +22,7 @@ const Shop = () => {
           <Products key={products.id} p={p} addToCart={addToCart}></Products>
         ))}
       </div>
-      <div className="cart-container">
+      <div className="product-order">
         <Order cart={cart}></Order>
       </div>
     </div>
